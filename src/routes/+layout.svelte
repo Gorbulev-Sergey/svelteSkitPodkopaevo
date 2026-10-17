@@ -19,6 +19,6 @@
 		</div>
 	</div>
 </div>
-<div class="container my-5">
+<div class="container my-7">
 	{@render children()}
 </div>

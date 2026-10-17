@@ -1,3 +1,6 @@
+<script lang="ts">
+</script>
+
 <div class="position-relative">
 	<img
 		class="img-fluid rounded-3"
@@ -5,13 +8,13 @@
 		alt=""
 	/>
 	<div class="position-absolute top-0 end-0 w-100">
-		<div class="bg-body bg-30 rounded-top-3 px-8 py-3 text-end">
+		<div class="bg-body bg-30 fg-white rounded-top-3 px-8 py-3 text-end">
 			<h2 class="fs-3xl text-uppercase">Свято-Алексеевский Преображенский скит</h2>
 		</div>
 	</div>
 	<div class="position-absolute bottom-0 end-0 w-100 text-end">
 		<div class="bg-body bg-30 rounded-bottom-3 px-6 py-2">
-			<div class="fs-3xl">Добро пожаловать на наш сайт</div>
+			<div class="fs-2xl">Добро пожаловать на наш сайт</div>
 		</div>
 	</div>
 </div>
