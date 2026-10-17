@@ -72,7 +72,7 @@
 		{ title: 'Расписание', id: 'anhor3' },
 		{ title: 'Контакты', id: 'anhor4' }
 	];
-	let blur = 'backdrop-filter: blur(.15em);';
+	let blur = 'backdrop-filter: blur(.2em);';
 </script>
 
 <nav
@@ -303,8 +303,8 @@
 		<div class="text-dark rounded">
 			<h5 class="fs-3xl"><b>по субботам</b>- Литургия, панихида (начало в 9:00)</h5>
 			<div class="fs-2xl">
-				(В настоящее время, в связи с отсутствием постоянного служащего священника,<br />
-				богослужения в нашем скиту совершаются по субботам)
+				В настоящее время, в связи с отсутствием постоянного служащего священника,<br />
+				богослужения в нашем скиту совершаются по субботам.
 			</div>
 		</div>
 	</div>
@@ -321,7 +321,7 @@
 			<a
 				href="https://tips.tips/000469264"
 				target="_blank"
-				class="btn btn-lg btn-solid theme-inverse rounded-3 text-uppercase"
+				class="btn btn-lg active rounded-3 text-uppercase"
 			>
 				Поддержать наш скит
 			</a>
@@ -421,7 +421,7 @@
 		background-color: var(--bs-white);
 	}
 	:global(.anhor3) {
-		background-color: var(--bs-blue-200);
+		background-color: var(--bs-blue-100);
 	}
 	:global(.anhor4) {
 		background-color: var(--bs-white);
