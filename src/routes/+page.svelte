@@ -154,9 +154,9 @@
 	_class="anhor2 scrollspy d-flex flex-wrap flex-column pt-11"
 	_style="min-height: 100vh;"
 >
-	<div class="row px-9">
+	<div class="row px-9 w-100">
 		<div class="md:col-8">
-			<h4 class="fs-2xl text-uppercase pt-12">История Спасо-Преображенского храма</h4>
+			<h4 class="fs-2xl text-uppercase pt-12 pb-3">История Спасо-Преображенского храма</h4>
 			<p>
 				Храм Преображения Господня в селе Подкопаево Мещовского района Калужской области
 				представляет собой кирпичную церковь, построенную после 1670 года, предположительно в 1688
@@ -192,7 +192,7 @@
 			</p>
 		</div>
 		<div class="md:col-4">
-			<h4 class="fs-2xl text-uppercase pt-12">Скит сегодня</h4>
+			<h4 class="fs-2xl text-uppercase pt-12 pb-4">Скит сегодня</h4>
 			<iframe
 				title="Скит сегодня"
 				class="rounded-3 border-0"
@@ -205,7 +205,7 @@
 		</div>
 	</div>
 
-	<h4 class="fs-2xl text-uppercase pt-12 px-9">История Села Подкопаево</h4>
+	<h4 class="fs-2xl text-uppercase pt-12 px-9 pb-3">История Села Подкопаево</h4>
 	<div class="px-9 pb-9">
 		<p>
 			Село Подкопаево (Спасское-Подкопаево, Преображенское) c середины XVII века принадлежало
@@ -411,19 +411,19 @@
 
 <style>
 	:global(body) {
-		font-size: 1.1rem;
+		font-size: 1.15rem;
 	}
 	:global(.active) {
 		background-color: var(--bs-gray-800);
 		color: var(--bs-gray-025);
 	}
 	:global(.anhor2) {
-		background-color: var(--bs-amber-050);
+		background-color: var(--bs-white);
 	}
 	:global(.anhor3) {
-		background-color: var(--bs-cyan-050);
+		background-color: var(--bs-blue-200);
 	}
 	:global(.anhor4) {
-		background-color: var(--bs-green-050);
+		background-color: var(--bs-white);
 	}
 </style>
