@@ -10,6 +10,11 @@
 
 <body data-sveltekit-preload-data="hover">
 	<div style="display: contents">%sveltekit.body%</div>
+	<script>
+		window.addEventListener('load', () => {
+			document.querySelector('layero-badge').remove()
+		});
+	</script>
 </body>
 
 </html>
