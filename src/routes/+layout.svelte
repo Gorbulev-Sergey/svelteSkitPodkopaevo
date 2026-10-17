@@ -2,8 +2,13 @@
 	import favicon from '#lib/assets/favicon.svg';
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
+	import { onMount } from 'svelte';
 
 	let { children } = $props();
+	onMount(() => {
+		const badge = document.getElementById('layero-badge');
+		if (badge) badge.remove();
+	});
 </script>
 
 <svelte:head>
