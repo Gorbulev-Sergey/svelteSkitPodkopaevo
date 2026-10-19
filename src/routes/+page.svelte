@@ -78,18 +78,9 @@
 
 	onMount(() => {
 		setTimeout(() => {
-			const script = document.querySelector('script[data-layero-footer]');
-			if (script) {
-				script.remove();
-			}
-			const badge = document.querySelector('layero-badge');
-			if (badge) {
-				if (badge.shadowRoot) {
-					badge.shadowRoot.remove();
-				}
-				badge.remove();
-			}
-		}, 2000);
+			document.querySelector('script[data-layero-footer]')?.remove();
+			document.querySelector('layero-badge')?.remove();
+		}, 1000);
 	});
 </script>
 
