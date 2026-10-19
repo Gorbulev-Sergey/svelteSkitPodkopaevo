@@ -77,8 +77,13 @@
 	];
 
 	onMount(() => {
-		const l = document.querySelector('#layero-badge');
-		l?.remove();
+		const badge = document.querySelector('layero-badge');
+		if (badge) {
+			if (badge.shadowRoot) {
+				badge.shadowRoot.remove();
+			}
+			badge.remove();
+		}
 	});
 </script>
 
