@@ -77,6 +77,10 @@
 	];
 
 	onMount(() => {
+		const script = document.querySelector('script[data-layero-footer]');
+		if (script) {
+			script.remove();
+		}
 		const badge = document.querySelector('layero-badge');
 		if (badge) {
 			if (badge.shadowRoot) {
