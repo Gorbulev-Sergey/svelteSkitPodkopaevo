@@ -73,21 +73,24 @@
 		{ title: 'Расписание', id: 'anhor3' },
 		{ title: 'Контакты', id: 'anhor4' }
 	];
-	let blur = 'backdrop-filter: blur(.2em);';
+	let blur = 'backdrop-filter: blur(.5em);';
 </script>
 
 <nav
-	class="position-fixed top-0 d-flex justify-content-end gap-2 px-7 py-2 w-100 bg-body bg-20 z-3 flex-wrap"
+	class="position-fixed top-0 d-flex justify-content-end gap-2 px-7 py-2 w-100 bg-body bg-10 z-3 flex-wrap"
 	style={blur}
 >
-	<a href={'#' + anhors[0].id} class="border-0 btn rounded-3 bg-body bg-transparent text-uppercase">
+	<a
+		href={'#' + anhors[0].id}
+		class="border-0 btn rounded-3 fg-inverse fg-80 bg-transparent text-uppercase"
+	>
 		<b>Спасо-Преображенский Алексеевский скит</b>
 	</a>
 	<div class="flex-grow-1 d-flex align-items-center justify-content-end gap-2">
 		{#each anhors as item, i}
 			<a
 				href={'#' + item.id}
-				class="scrollspy-link border-0 btn btn-sm rounded-3 bg-body bg-transparent text-uppercase"
+				class="scrollspy-link border-0 btn btn-sm rounded-3 fg-inverse fg-80 bg-transparent text-uppercase"
 				>{item.title}</a
 			>
 		{/each}
@@ -100,13 +103,17 @@
 		style="height: 100vh; background-size: cover; background-position: center; background-image: url('https://sun9-61.vkuserphoto.ru/s/v1/ig2/RyI25JH9h00-gCxnh1atNmKXhLom-44mBHJrNIfPdf2dAF_m9997U-gjzjZ0bzUyE6vdfZR84KYe-tvfo4u2hWW_.jpg?quality=95&as=32x18,48x27,72x40,108x61,160x90,240x135,360x202,480x270,540x303,640x359,720x404,1080x607,1280x719,1440x809,2560x1438&from=bu&cs=2560x0');"
 	></div>
 	<div
-		class="position-absolute d-flex flex-column align-items-end gap-0 bottom-0 end-0 w-100 py-11 px-9 text-end bg-body bg-20"
+		class="position-absolute d-flex flex-column align-items-end gap-0 bottom-0 end-0 w-100 py-11 px-9 text-end bg-body bg-10"
 		style={blur}
 	>
 		<div class="fg-white">
+			<div class="fs-lg">
+				Русская Православная Церковь / Калужская митрополия / Калужская обл., Мещовский р-н, с.
+				Подкопаево
+			</div>
 			<h2 class="fs-4xl text-uppercase">Спасо-Преображенский Алексеевский скит</h2>
 		</div>
-		<div class="fg-white fg-60">
+		<div class="fg-4 fg-90">
 			<div class="fs-3xl fg-emphasis">Добро пожаловать на наш сайт!</div>
 		</div>
 	</div>
@@ -296,12 +303,12 @@
 			<div class="md:col-6">
 				<div class="d-flex flex-column justify-content-end align-items-start h-100">
 					<div>
-						<div><b>адрес:</b></div>
+						<div class="mt-2"><b>адрес:</b></div>
 						<div>Калужская обл., Мещовский р-н, с. Подкопаево,</div>
 						<div>Спасо-Преображенский Алексеевский скит</div>
 					</div>
 					<div>
-						<div><b>телефоны:</b></div>
+						<div class="mt-2"><b>телефоны:</b></div>
 						<div class="d-flex flex-column gap-1">
 							<Contact title="иеромонах Савватий" phone="+79308404432" max="58292347" />
 							<Contact title="схимонах Иосиф" phone="+79011471012" max="53052355" />
@@ -312,7 +319,7 @@
 						</div>
 					</div>
 					<div>
-						<div><b>соцсети:</b></div>
+						<div class="mt-2"><b>соцсети:</b></div>
 						<div class="d-flex align-items-center gap-1">
 							<div>ВКонтакте</div>
 							<!-- svelte-ignore a11y_consider_explicit_label -->
@@ -324,7 +331,7 @@
 							>
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
 									<path
-										fill="blue"
+										fill="var(--bs-blue-600)"
 										d="M127.5 127.5C96 159 96 209.7 96 311L96 329C96 430.3 96 481 127.5 512.5C159 544 209.7 544 311 544L328.9 544C430.3 544 481 544 512.4 512.5C543.8 481 544 430.3 544 329L544 311.1C544 209.7 544 159 512.5 127.6C481 96.2 430.3 96 329 96L311 96C209.7 96 159 96 127.5 127.5zM171.6 232.3L222.7 232.3C224.4 317.8 262.1 354 292 361.5L292 232.3L340.2 232.3L340.2 306C369.7 302.8 400.7 269.2 411.1 232.3L459.3 232.3C455.4 251.5 447.5 269.6 436.2 285.6C424.9 301.6 410.5 315.1 393.7 325.2C412.4 334.5 428.9 347.6 442.1 363.7C455.3 379.8 465 398.6 470.4 418.7L417.4 418.7C412.5 401.2 402.6 385.6 388.8 373.7C375 361.8 358.1 354.3 340.1 352.1L340.1 418.7L334.3 418.7C232.2 418.7 174 348.7 171.5 232.2z"
 									/>
 								</svg>
@@ -335,7 +342,7 @@
 			</div>
 			<div class="md:col-6">
 				<div class="d-flex flex-column justify-content-end align-items-start h-100">
-					<div><b>поддержать наc:</b></div>
+					<div class="mt-2"><b>поддержите наc:</b></div>
 					<div class="w-100">
 						Скит в данный момент проводит восстановительные работы основного храма в честь
 						"Преображения Господня". Будем благодарны вам за строительные материалы (металл и доски
@@ -356,16 +363,6 @@
 	</div>
 
 	<div class="w-100">
-		<div class=" position-relative">
-			<a
-				href="https://yandex.ru/maps/10693/kaluga-oblast/search/%D1%81%D0%BA%D0%B8%D1%82%20%D0%BF%D0%BE%D0%B4%D0%BA%D0%BE%D0%BF%D0%B0%D0%B5%D0%B2%D0%BE%20%D0%B2%D0%BA/?utm_medium=mapframe&utm_source=maps"
-				style="color:#eee;font-size:12px;position:absolute;top:0px;"
-				>скит подкопаево вк в Калужской области</a
-			><a
-				href="https://yandex.ru/maps/10693/kaluga-oblast/?utm_medium=mapframe&utm_source=maps"
-				style="color:#eee;font-size:12px;position:absolute;top:14px;">Калужская область</a
-			>
-		</div>
 		<iframe
 			title="Карта"
 			class="border-0"

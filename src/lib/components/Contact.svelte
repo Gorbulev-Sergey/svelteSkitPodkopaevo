@@ -9,8 +9,12 @@
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
 <div class="d-flex justify-content-start align-items-center gap-1">
-	<div>{phone} {title}</div>
-	<a class="badge text-decoration-none" href={phone?.replace('+7', '8')} target="_blank">{phone}</a>
+	<div>{title}:</div>
+	<a
+		class="badge text-decoration-none py-1 px-2 rounded-3 theme-inverse"
+		href={phone?.replace('+7', '8')}
+		target="_blank">{phone}</a
+	>
 	{#if max !== undefined}
 		<a
 			class="badge text-decoration-none p-0"
