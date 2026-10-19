@@ -76,11 +76,18 @@
 		{ title: 'Контакты', id: 'anhor4' }
 	];
 
-	onMount(() => {
-		setTimeout(() => {
-			document.querySelector('script[data-layero-footer]')?.remove();
-			document.querySelector('layero-badge')?.remove();
-		}, 1000);
+	onMount(async () => {
+		document.querySelector('#wt-sky-root')?.remove();
+		for (let i = 0; i < 10; i++) {
+			console.log(i);
+
+			await new Promise(() =>
+				setTimeout(() => {
+					document.querySelector('script[data-layero-footer]')?.remove();
+					document.querySelector('layero-badge')?.remove();
+				}, 1000)
+			);
+		}
 	});
 </script>
 
