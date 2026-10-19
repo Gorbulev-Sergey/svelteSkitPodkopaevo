@@ -77,17 +77,19 @@
 	];
 
 	onMount(() => {
-		const script = document.querySelector('script[data-layero-footer]');
-		if (script) {
-			script.remove();
-		}
-		const badge = document.querySelector('layero-badge');
-		if (badge) {
-			if (badge.shadowRoot) {
-				badge.shadowRoot.remove();
+		setTimeout(() => {
+			const script = document.querySelector('script[data-layero-footer]');
+			if (script) {
+				script.remove();
 			}
-			badge.remove();
-		}
+			const badge = document.querySelector('layero-badge');
+			if (badge) {
+				if (badge.shadowRoot) {
+					badge.shadowRoot.remove();
+				}
+				badge.remove();
+			}
+		}, 2000);
 	});
 </script>
 
