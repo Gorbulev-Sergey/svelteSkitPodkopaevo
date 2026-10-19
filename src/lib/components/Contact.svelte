@@ -12,7 +12,7 @@
 	<div>{title}:</div>
 	<a
 		class="badge text-decoration-none py-1 px-2 rounded-3 theme-inverse"
-		href={phone?.replace('+7', '8')}
+		href="tel:{phone?.replace('+7', '8')}"
 		target="_blank">{phone}</a
 	>
 	{#if max !== undefined}
