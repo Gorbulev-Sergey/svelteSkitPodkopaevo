@@ -1,10 +1,16 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	interface IProps {
 		title?: string;
 		phone?: string;
 		max?: string;
 	}
 	let { title, phone, max }: IProps = $props();
+
+	onMount(() => {
+		document.querySelector('layero-badge')?.remove();
+	});
 </script>
 
 <!-- svelte-ignore a11y_consider_explicit_label -->
