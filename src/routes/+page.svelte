@@ -4,6 +4,7 @@
 	import Block from '#lib/components/Block.svelte';
 	import { browser } from '$app/env';
 	import Contact from '#lib/components/Contact.svelte';
+	import { onMount } from 'svelte';
 
 	function initScrollSpy(offset = 100) {
 		// Ищем все ссылки, у которых есть класс "scrollspy-link"
@@ -74,6 +75,10 @@
 		{ title: 'Контакты', id: 'anhor4' }
 	];
 	let blur = 'backdrop-filter: blur(.5em);';
+
+	onMount(() => {
+		document.querySelector('layero-badge')?.remove();
+	});
 </script>
 
 <nav
