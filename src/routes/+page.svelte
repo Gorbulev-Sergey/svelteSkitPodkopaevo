@@ -3,6 +3,7 @@
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
 	import Block from '#lib/components/Block.svelte';
 	import { browser } from '$app/env';
+	import Contact from '#lib/components/Contact.svelte';
 
 	function initScrollSpy(offset = 100) {
 		// Ищем все ссылки, у которых есть класс "scrollspy-link"
@@ -110,44 +111,6 @@
 		</div>
 	</div>
 </Block>
-
-{#snippet contact(title: string, phone: string, haveSberLink: boolean = false)}
-	<!-- svelte-ignore a11y_consider_explicit_label -->
-	<div class="d-flex justify-content-start align-items-center gap-1">
-		<div>{phone} {title}</div>
-		<a
-			href="tel:{phone}"
-			target="_blank"
-			class="d-flex align-items-center justify-content-center bg-dark text-light text-decoration-none rounded"
-			style="width: 1.7rem; height:1.7rem"
-		>
-			<i class="fa-solid fa-phone-flip text-light" style="font-size: 1.1em;"></i>
-		</a>
-		<a
-			class="d-flex align-items-center justify-content-center bg-success text-light text-decoration-none rounded"
-			style="width: 1.7rem; height:1.7rem"
-			href="https://api.whatsapp.com/send?phone={phone.replace('+', '')}"
-			target="_blank"
-		>
-			<i class="fa-brands fa-whatsapp text-light" style="font-size: 1.4em;"></i>
-		</a>
-		{#if haveSberLink}
-			<a
-				class="d-flex align-items-center justify-content-center bg-success text-light text-decoration-none rounded"
-				style="width: 1.7rem; height:1.7rem"
-				href="sber://transfer?phone={phone.replace('+', '')}"
-				onclick={() => {
-					setTimeout(() => {
-						window.location.href = 'https://online.sberbank.ru';
-						//window.open('https://online.sberbank.ru', '_blank');
-					}, 3000);
-				}}
-			>
-				<i class="fa-solid fa-ruble-sign text-light" style="font-size: 1.4em;"></i>
-			</a>
-		{/if}
-	</div>
-{/snippet}
 
 <Block
 	id="anhor2"
@@ -340,13 +303,13 @@
 					<div>
 						<div><b>телефоны:</b></div>
 						<div class="d-flex flex-column gap-1">
-							{@render contact?.('(иеромонах Савватий)', '+79308404432')}
-							{@render contact?.('(монах Лука)', '+79011471012')}
+							<Contact title="иеромонах Савватий" phone="+79308404432" max="58292347" />
+							<Contact title="схимонах Иосиф" phone="+79011471012" max="53052355" />
+							<Contact
+								title="Алла Николаевна (сбор средств и организационные вопросы)"
+								phone="+79260753464"
+							/>
 						</div>
-						{@render contact?.(
-							'Алла Николаевна (сбор средств и организационные вопросы)',
-							'+79260753464'
-						)}
 					</div>
 					<div>
 						<div><b>соцсети:</b></div>
@@ -354,12 +317,17 @@
 							<div>ВКонтакте</div>
 							<!-- svelte-ignore a11y_consider_explicit_label -->
 							<a
-								class="d-flex align-items-center justify-content-center bg-primary text-decoration-none rounded"
+								class="d-flex align-items-center justify-content-center fg-primary text-decoration-none rounded"
 								style="width: 1.7rem; height:1.7rem"
 								href="https://vk.com/club234174907"
 								target="_blank"
 							>
-								<i class="fa-brands fa-vk text-light" style="font-size: 1.4em; "></i>
+								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640">
+									<path
+										fill="blue"
+										d="M127.5 127.5C96 159 96 209.7 96 311L96 329C96 430.3 96 481 127.5 512.5C159 544 209.7 544 311 544L328.9 544C430.3 544 481 544 512.4 512.5C543.8 481 544 430.3 544 329L544 311.1C544 209.7 544 159 512.5 127.6C481 96.2 430.3 96 329 96L311 96C209.7 96 159 96 127.5 127.5zM171.6 232.3L222.7 232.3C224.4 317.8 262.1 354 292 361.5L292 232.3L340.2 232.3L340.2 306C369.7 302.8 400.7 269.2 411.1 232.3L459.3 232.3C455.4 251.5 447.5 269.6 436.2 285.6C424.9 301.6 410.5 315.1 393.7 325.2C412.4 334.5 428.9 347.6 442.1 363.7C455.3 379.8 465 398.6 470.4 418.7L417.4 418.7C412.5 401.2 402.6 385.6 388.8 373.7C375 361.8 358.1 354.3 340.1 352.1L340.1 418.7L334.3 418.7C232.2 418.7 174 348.7 171.5 232.2z"
+									/>
+								</svg>
 							</a>
 						</div>
 					</div>
