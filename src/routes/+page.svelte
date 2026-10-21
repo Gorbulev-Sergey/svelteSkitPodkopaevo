@@ -8,6 +8,15 @@
 	import { getFolders, getPhotos } from '#lib/remote/photos.remote.ts';
 	import PhotosRow from '#lib/components/PhotosRow.svelte';
 
+	function toggleTheme() {
+		let theme = document.querySelector('[data-bs-theme]');
+		theme?.setAttribute(
+			'data-bs-theme',
+			theme.getAttribute('data-bs-theme') == 'light' ? 'dark' : 'light'
+		);
+		cookieStore.set('theme', theme?.getAttribute('data-bs-theme') || 'light');
+	}
+
 	let blur = 'backdrop-filter: blur(.5em);';
 	function initScrollSpy(offset = 100) {
 		// Ищем все ссылки, у которых есть класс "scrollspy-link"
@@ -127,6 +136,13 @@
 		<b>Спасо-Преображенский Алексеевский скит</b>
 	</a>
 	<div class="flex-grow-1 d-flex align-items-center justify-content-end gap-2">
+		<button
+			title="Тема"
+			class="scrollspy-link border-0 btn btn-sm rounded-3 fg-inverse fg-80 bg-transparent text-uppercase"
+			onclick={toggleTheme}
+		>
+			<i class="bi bi-sun"></i>
+		</button>
 		{#each anhors as item, i}
 			<a
 				href={'#' + item.id}
@@ -441,15 +457,15 @@
 		color: var(--bs-gray-025);
 	}
 	:global(.anhor2) {
-		background-color: var(--bs-white);
+		background-color: light-dark(var(--bs-white), var(--bs-gray-700));
 	}
 	:global(.images) {
-		background-color: var(--bs-gray-500);
+		background-color: light-dark(var(--bs-white), var(--bs-gray-900));
 	}
 	:global(.anhor3) {
-		background-color: var(--bs-blue-100);
+		background-color: light-dark(var(--bs-blue-100), var(--bs-gray-800));
 	}
 	:global(.anhor4) {
-		background-color: var(--bs-white);
+		background-color: light-dark(var(--bs-white), var(--bs-gray-700));
 	}
 </style>

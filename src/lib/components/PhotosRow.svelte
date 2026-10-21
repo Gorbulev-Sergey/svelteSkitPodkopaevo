@@ -63,13 +63,12 @@
 
 	/* Ползунок (движущаяся часть) */
 	.photos-row::-webkit-scrollbar-thumb {
-		background-color: var(--bs-gray-400);
+		background-color: var(--bs-gray-600);
 		border-radius: 10px;
-		border: 2px solid var(--bs-gray-600); /* создаёт эффект «вдавленности» */
 	}
 
 	/* Ползунок при наведении */
 	.photos-row::-webkit-scrollbar-thumb:hover {
-		background-color: var(--bs-gray-600);
+		background-color: var(--bs-gray-700);
 	}
 </style>
