@@ -5,8 +5,8 @@
 	import Contact from '#lib/components/Contact.svelte';
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
-	import ImagesRow from '#lib/components/ImagesRow.svelte';
-	import { getPhotos } from '#lib/remote/photos.remote.ts';
+	import { getFolders, getPhotos } from '#lib/remote/photos.remote.ts';
+	import PhotosRow from '#lib/components/PhotosRow.svelte';
 
 	let blur = 'backdrop-filter: blur(.5em);';
 	function initScrollSpy(offset = 100) {
@@ -90,7 +90,17 @@
 		isImageModalShow: false
 	});
 
-	let photos = $derived(await getPhotos());
+	let folders = $derived<string[]>(await getFolders());
+	let photos = $derived(
+		await Promise.all(
+			folders.map(async (f) => {
+				const record: Record<string, string[]> = {
+					[f]: await getPhotos(f)
+				};
+				return record;
+			})
+		)
+	);
 	onMount(async () => {
 		document.querySelector('#wt-sky-root')?.remove();
 		for (let i = 0; i < 10; i++) {
@@ -299,9 +309,14 @@
 	_style="min-height: 100vh;"
 >
 	<h4 class="fs-2xl text-uppercase pt-12 pb-3">Фотографии</h4>
-	<div class="flex-grow-1 d-flex flex-column justify-content-end my-9">
-		<div class="d-flex flex-column gap-3">
-			<ImagesRow title={''} items={photos} bind:modalState />
+	<div class="flex-grow-1 d-flex flex-column justify-content-end my-9 w-100">
+		<div class="d-flex flex-column gap-3 overflow-x-auto">
+			{#each Object.entries(photos) as [i, values]}
+				{#each Object.entries(values) as [name, v]}
+					<h4>{name}</h4>
+					<PhotosRow title={''} items={v} bind:modalState />
+				{/each}
+			{/each}
 		</div>
 	</div>
 </Block>
