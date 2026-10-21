@@ -2,9 +2,11 @@
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
 	import Block from '#lib/components/Block.svelte';
-	import { browser } from '$app/env';
 	import Contact from '#lib/components/Contact.svelte';
+	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
+	import ImagesRow from '#lib/components/ImagesRow.svelte';
+	import { getPhotos } from '#lib/remote/photos.remote.ts';
 
 	let blur = 'backdrop-filter: blur(.5em);';
 	function initScrollSpy(offset = 100) {
@@ -72,10 +74,23 @@
 	let anhors: IAnhor[] = [
 		{ title: 'Главная', id: 'anhor1' },
 		{ title: 'История', id: 'anhor2' },
+		{ title: 'Фотографии', id: 'images' },
 		{ title: 'Расписание', id: 'anhor3' },
 		{ title: 'Контакты', id: 'anhor4' }
 	];
 
+	interface IModalState {
+		image: string;
+		photos: string[];
+		isImageModalShow: boolean;
+	}
+	let modalState = $state<IModalState>({
+		image: '',
+		photos: [] as string[],
+		isImageModalShow: false
+	});
+
+	let photos = $derived(await getPhotos());
 	onMount(async () => {
 		document.querySelector('#wt-sky-root')?.remove();
 		for (let i = 0; i < 10; i++) {
@@ -279,6 +294,19 @@
 </Block>
 
 <Block
+	id="images"
+	_class="images scrollspy d-flex flex-wrap flex-column px-9 w-100 pt-11"
+	_style="min-height: 100vh;"
+>
+	<h4 class="fs-2xl text-uppercase pt-12 pb-3">Фотографии</h4>
+	<div class="flex-grow-1 d-flex flex-column justify-content-end my-9">
+		<div class="d-flex flex-column gap-3">
+			<ImagesRow title={''} items={photos} bind:modalState />
+		</div>
+	</div>
+</Block>
+
+<Block
 	id="anhor3"
 	_class="anhor3 scrollspy d-flex flex-wrap flex-column pt-11"
 	_style="min-height: 100vh;"
@@ -399,6 +427,9 @@
 	}
 	:global(.anhor2) {
 		background-color: var(--bs-white);
+	}
+	:global(.images) {
+		background-color: var(--bs-gray-500);
 	}
 	:global(.anhor3) {
 		background-color: var(--bs-blue-100);
