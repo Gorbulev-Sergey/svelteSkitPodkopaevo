@@ -1,4 +1,4 @@
-import { Access_Token } from '$app/env/public';
+import { Access_Token } from '$app/env/private';
 import { query } from '$app/server';
 
 export const getFolders = query(async () => {
@@ -14,7 +14,7 @@ export const getFolders = query(async () => {
 		.map((i) => {
 			return i.name;
 		});
-	console.log(folders);
+	// console.log(folders);
 	return folders as string[];
 });
 
