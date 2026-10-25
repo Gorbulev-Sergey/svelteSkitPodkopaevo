@@ -2,12 +2,12 @@
 	import favicon from '#lib/assets/favicon.ico';
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
-	import Block from '#lib/components/Block.svelte';
 	import Contact from '#lib/components/Contact.svelte';
 	import { browser } from '$app/env';
 	import { onMount } from 'svelte';
 	import { getFolders, getPhotos } from '#lib/remote/photos.remote.ts';
 	import PhotosRow from '#lib/components/PhotosRow.svelte';
+	import Block from '#lib/components/Block.svelte';
 
 	function toggleTheme() {
 		let theme = document.querySelector('[data-bs-theme]');
