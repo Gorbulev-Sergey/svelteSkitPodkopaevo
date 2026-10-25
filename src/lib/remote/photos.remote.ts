@@ -1,5 +1,7 @@
-import { Access_Token } from '$env/static/private';
+// import { Access_Token } from '$env/static/private';
 import { query } from '$app/server';
+
+const Access_Token = 'y0__wgBEIHtnRoYl_s6IKeDzroZMIq_wd8HKbLWlxPbH23gP20qVZXrFHpiTLE';
 
 export const getFolders = query(async () => {
 	const result = await fetch('https://cloud-api.yandex.net/v1/disk/resources?path=Подкопаево', {
