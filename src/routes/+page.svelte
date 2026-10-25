@@ -1,4 +1,5 @@
 <script lang="ts">
+	import favicon from '#lib/assets/favicon.ico';
 	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-icons/font/bootstrap-icons.min.css';
 	import Block from '#lib/components/Block.svelte';
@@ -124,6 +125,11 @@
 		}
 	});
 </script>
+
+<svelte:head>
+	<link rel="icon" href={favicon} />
+	<title>Спасо-Преображенский Алексеевский скит</title>
+</svelte:head>
 
 <nav
 	class="position-fixed top-0 d-flex justify-content-end gap-2 px-7 py-2 w-100 bg-body bg-10 z-3 flex-wrap"
