@@ -1,4 +1,4 @@
-import { Access_Token } from '$app/env/private';
+import { Access_Token } from '$env/static/private';
 import { query } from '$app/server';
 
 export const getFolders = query(async () => {
