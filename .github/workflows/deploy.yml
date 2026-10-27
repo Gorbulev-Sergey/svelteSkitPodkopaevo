@@ -1,0 +1,35 @@
+name: Deploy to Ubuntu
+
+on:
+  push:
+    branches: [ubuntu] # или master, в зависимости от твоей ветки
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.SERVER_IP }}
+          username: ${{ secrets.SERVER_USER }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          script: |
+            # Переходим в папку проекта
+            cd /var/www/svelteSkitPodkopaevo
+
+            # Обновляем код
+            git pull origin main
+
+            # Устанавливаем зависимости (npm ci быстрее и надежнее)
+            npm ci
+
+            # Собираем проект (создается папка build)
+            npm run build
+
+            # Перезапускаем приложение через PM2
+            # Предварительно убедись, что процесс уже запущен хотя бы раз вручную
+            pm2 restart svelteSkitPodkopaevo || pm2 start build/index.js --name svelteSkitPodkopaevo
